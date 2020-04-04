@@ -1,0 +1,36 @@
+version: '3.6'
+services:
+  database:
+    image: "mysql:5.7"
+    restart: always
+    container_name: "mysql"
+    ports:
+      - "3307:3306"
+    expose:
+      - "3306"
+    volumes:
+      - ./db-init/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      DATABASE_HOST: localhost
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: teacher_admin
+      MYSQL_USER: temp_user
+      MYSQL_PASSWORD: mysql
+ 
+  service:
+    build: ./
+    image: "node"
+    container_name: "nodejs"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    links:
+      - database
+    environment:
+      DATABASE_HOST: localhost
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: teacher_admin
+      MYSQL_USER: temp_user
+      MYSQL_PASSWORD: mysql
+    restart: on-failure
