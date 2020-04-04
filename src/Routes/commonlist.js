@@ -15,7 +15,7 @@ const teachersRepository = new teacherRepo();
 const teacherStudentRepo = require('../Repository/teacherStudentRepo');
 const teachersStudentsRepository = new teacherStudentRepo();
 
-async function processRequest(conn, ids) {
+async function processRequest(ids) {
   var overall_arr = [];
   for (var i = 0; i < ids.length; i++) {
     var tid = ids[i];
@@ -31,7 +31,7 @@ async function processRequest(conn, ids) {
   return overall_arr;
 }
 
-async function getTeacherIds(conn, teacher) {
+async function getTeacherIds(teacher) {
   var ids_arr = [];
   for (var i = 0; i < teacher.length; i++) {
     let tid = await teachersRepository.getTeacherIds(teacher[i])
@@ -42,16 +42,20 @@ async function getTeacherIds(conn, teacher) {
   return ids_arr;
 }
 router.get('/', async (req, res) => {
-  let { teacher } = req.query;
-  if (typeof (teacher) === "string") {
-    teacher = [teacher];
-  }
-  const conn = await connection(dbConfig).catch(e => { });
-  const ids = await getTeacherIds(conn, teacher);
-  let arr = await processRequest(conn, ids)
-  intersected = Util.findCommonStudents(arr);
-  response = { students: intersected };
-  res.json(response).status(200).send();
+  try {
+      let { teacher } = req.query;
+      if (typeof (teacher) === "string") {
+        teacher = [teacher];
+      }
+      const ids = await getTeacherIds(teacher);
+      let arr = await processRequest(ids)
+      intersected = Util.findCommonStudents(arr);
+      response = { students: intersected };
+      res.json(response).status(200).send();
+    } catch(err) {
+      e = new HttpError('Error Processing request', err.code, '400');
+      res.status(400).send(e);
+    }
 });
 
 module.exports = router;

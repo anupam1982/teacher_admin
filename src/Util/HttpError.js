@@ -8,25 +8,14 @@ module.exports = class HttpError extends Error {
         this.code = code;
         this.name = 'HttpError';
 
-        /**
-         * Errors can't be extended normally in an es6 class
-         *
-         * @returns {{errors: *[]}}
-         */
-        this.render = () => {
-            let error = {
-                'code': this.internal,
-                'status': this.code,
-                'detail': message
-            };
+        let error = {
+            'code': this.internal,
+            'status': this.code,
+            'detail': message
+        };
 
-            if (process.env.NODE_ENV !== 'production') {
-                error.trace = this.stack;
-            }
-
-            return {
-                'errors': [error]
-            };
+        return {
+            'errors': [error]
         };
     }
 
