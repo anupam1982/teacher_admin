@@ -1,0 +1,4 @@
+DB_HOST=mysql
+DB_USER=temp_user
+DB_PASS=mysql
+DB_DATABASE=teacher_admin

@@ -14,6 +14,8 @@ const teachersRepository = new teacherRepo();
 const teacherStudentRepo = require('../Repository/teacherStudentRepo');
 const teachersStudentsRepository = new teacherStudentRepo();
 
+const HttpError = require('../Util/HttpError');
+
 router.post('/', async (req, res) => {
   try {
     const { teacher, students } = req.body;
@@ -65,7 +67,7 @@ router.post('/', async (req, res) => {
     }
     res.status(204).send()
   } catch (e) {
-    err = new HttpError('Error Processing request', err.code, '400');
+    err = new HttpError('Error Processing request', e.code, '400');
     res.status(400).send(err);
   }
 });

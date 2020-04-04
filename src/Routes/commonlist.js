@@ -15,6 +15,8 @@ const teachersRepository = new teacherRepo();
 const teacherStudentRepo = require('../Repository/teacherStudentRepo');
 const teachersStudentsRepository = new teacherStudentRepo();
 
+const HttpError = require('../Util/HttpError');
+
 async function processRequest(ids) {
   var overall_arr = [];
   for (var i = 0; i < ids.length; i++) {
