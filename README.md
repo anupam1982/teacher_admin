@@ -1,7 +1,7 @@
 # Welcome to Teacher Admin App
-# An application for managing teacher student portfolios
+An application for managing teacher student portfolios
 
-# Steps to run the application in the dev environment.
+Steps to run the application in the dev environment.
 
 1. Clone the repository with the following command.
 
@@ -17,7 +17,7 @@
 
 4. Following are the sample curl requests for the APIs
    
-    # To Register
+    To Register
 
     curl --request POST \
     --url http://localhost:3000/api/register \
@@ -31,13 +31,13 @@
     }
     '
 
-    # To get CommonStudents
+    To get CommonStudents
 
     curl --request GET \
     --url 'http://localhost:3000/api/commonstudents?teacher=patrick%40gmail.com&teacher=dicky%40gmail.com' \
     --header 'content-type: application/json' \ '
 
-    #To Suspend a student
+    To Suspend a student
 
     curl --request POST \
     --url http://localhost:3000/api/suspend \
@@ -48,7 +48,7 @@
     }
     '
 
-    # To Retrieve Notification List
+    To Retrieve Notification List
 
     curl --request POST \
     --url http://localhost:3000/api/retrievefornotifications \
