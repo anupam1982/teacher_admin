@@ -30,7 +30,11 @@ exports.notificationlist = async function (req, res) {
     let { teacher, notification } = req.body;
     const emaillist = await Util.extractEmails(notification);
     const tid = await teachersRepository.getTeacherIds(teacher);
-    const registeredStudents = await getRegisteredStudents(tid[0].id)
+    const registeredStudents = []
+    if(tid && tid[0] && tid[0].id)
+    {
+      registeredStudents = await getRegisteredStudents(tid[0].id)
+    }
     var uniqueList = [...new Set(emaillist.concat(registeredStudents))];
     let response = { recipients: uniqueList };
     res.json(response).status(200).send();
