@@ -1,24 +1,25 @@
 # Welcome to Teacher Admin App
-An application for managing teacher student portfolios
+##  An application for managing teacher student portfolios
 
-Steps to run the application in the dev environment.
+###### Steps to run the application in the dev environment.
 
-1. Clone the repository with the following command.
+1. **Clone the repository with the following command.**
 
     https://github.com/anupam1982/teacher_admin.git
 
-2. Navigate to the directory and execute the following:
-    1. cp teacher_admin/deploy/env/dev/dotenv .env
-    2. docker-compose build
-    3. docker-compose up (Give -d option if you want to run it in background)
-    4. The application should run in the localhost
+2. **Navigate to the directory and execute the following:**
 
-3. Type "http://localhost:3000" in the browser to check if the application is running or not.
+    1. **cp teacher_admin/deploy/env/dev/dotenv .env**
+    2. **docker-compose build**
+    3. **docker-compose up (Give -d option if you want to run it in background)**
+    4. **The application should run in the localhost.**
 
-4. Following are the sample curl requests for the APIs
+3. **Type "http://localhost:3000" in the browser to check if the application is running or not.**
+
+4. **Following are the sample curl requests for the APIs**
    
     1. To Register
-
+```
     curl --request POST \
     --url http://localhost:3000/api/register \
     --header 'content-type: application/json' \
@@ -30,15 +31,16 @@ Steps to run the application in the dev environment.
         ]
     }
     '
-
+```
     2. To get CommonStudents
-
+```
     curl --request GET \
     --url 'http://localhost:3000/api/commonstudents?teacher=patrick%40gmail.com&teacher=dicky%40gmail.com' \
     --header 'content-type: application/json' \ '
+    ```
 
     3. To Suspend a student
-
+```
     curl --request POST \
     --url http://localhost:3000/api/suspend \
     --header 'content-type: application/json' \
@@ -47,9 +49,10 @@ Steps to run the application in the dev environment.
     "student": "abc@gmail.com"
     }
     '
+    ```
 
     4. To Retrieve Notification List
-
+```
     curl --request POST \
     --url http://localhost:3000/api/retrievefornotifications \
     --header 'content-type: application/json' \
@@ -58,7 +61,7 @@ Steps to run the application in the dev environment.
     "teacher":  "robert@gmail.com",
         "notification": "Hello students! @studentagnes@gmail.com @studentmiche@gmail.com"
     }'
-
+```
 
  5. To run the basic unit tests
 
