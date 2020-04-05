@@ -19,9 +19,8 @@
 4. **Following are the sample curl requests for the APIs**
    
 
-    To Register
+    ```To Register
 
-```
     curl --request POST \
     --url http://localhost:3000/api/register \
     --header 'content-type: application/json' \
@@ -34,19 +33,15 @@
     }
     ' ```
 
-    To get CommonStudents
+    ```To get CommonStudents
 
-
-```
     curl --request GET \
     --url 'http://localhost:3000/api/commonstudents?teacher=patrick%40gmail.com&teacher=dicky%40gmail.com' \
     --header 'content-type: application/json' \ ' ```
 
     
-    To Suspend a student
+    ``` To Suspend a student
 
-
-```
     curl --request POST \
     --url http://localhost:3000/api/suspend \
     --header 'content-type: application/json' \
@@ -57,9 +52,8 @@
     ' ```
 
 
-    To Retrieve Notification List
+    ``` To Retrieve Notification List
 
-```
     curl --request POST \
     --url http://localhost:3000/api/retrievefornotifications \
     --header 'content-type: application/json' \
@@ -67,8 +61,7 @@
     --data '{
     "teacher":  "robert@gmail.com",
         "notification": "Hello students! @studentagnes@gmail.com @studentmiche@gmail.com"
-    }'
-```
+    }' ```
 
  5. To run the basic unit tests
 
