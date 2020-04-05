@@ -4,9 +4,9 @@ const query = require('../Helpers/query');
 const dbConfig = require('../dbConfig');
 
 module.exports = class studentRepo {
-    async  updateStudentStatus(student) {
+    async  updateStudentStatus(student, status) {
         const conn = await connection(dbConfig).catch(e => { });
-        let results = await query(conn, `UPDATE students SET status=? WHERE email=?`, ['false', student]);
+        let results = await query(conn, `UPDATE students SET status=? WHERE email=?`, [status, student]);
         return results;
     }
 
@@ -16,9 +16,15 @@ module.exports = class studentRepo {
         return results;
     }
 
+    async  getStudentStatus(elem) {
+        const conn = await connection(dbConfig).catch(e => { });
+        let results = await query(conn, `SELECT status FROM students WHERE email=?`, [elem]);
+        return results;
+    }
+
     async  getAllStudents() {
         const conn = await connection(dbConfig).catch(e => { });
-        let results = await query(conn, `SELECT email FROM students WHERE status=?`, ['true']);
+        let results = await query(conn, `SELECT * FROM students`);
         return results;
     }
 

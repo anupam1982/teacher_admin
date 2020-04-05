@@ -35,11 +35,11 @@ app.get('/list', async (req, res) => {
     const conn = await connection(dbConfig).catch(e => {});
     const results = await query(conn, 'SELECT * FROM teachers').catch(console.log);
     res.json({ results });
-  })    
+  })
 
 app.use('/api/register', registerRouter);
 app.use('/api/commonstudents', commonlistRouter);
 app.use('/api/suspend', suspendRouter);
 app.use('/api/retrievefornotifications', notificationsRouter);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+module.exports = app.listen(port, () => console.log(`Teacher app listening on port ${port}!`))

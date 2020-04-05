@@ -22,4 +22,5 @@ CREATE TABLE IF NOT EXISTS `teachers_students` (
   KEY `student_id_idx` (`student_id`),
   CONSTRAINT `student_id` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`),
   CONSTRAINT `teacher_id` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`id`)
+  ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11;
