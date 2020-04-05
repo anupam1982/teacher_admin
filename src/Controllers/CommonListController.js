@@ -48,7 +48,7 @@ exports.commonlist = async function (req, res) {
       response = { students: intersected };
       res.json(response).status(200).send();
     } catch(err) {
-      e = new HttpError('Error Processing request', err.code, '400');
+      e = new HttpError('Error Processing request', 400, '400');
       res.status(400).send(e);
     }
 }

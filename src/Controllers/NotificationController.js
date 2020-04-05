@@ -39,7 +39,7 @@ exports.notificationlist = async function (req, res) {
     let response = { recipients: uniqueList };
     res.json(response).status(200).send();
   } catch (e) {
-    err = new HttpError('Error Processing request', e.code, '400');
+    err = new HttpError('Error Processing request', 400, '400');
     res.status(400).send(err);
   }
 }
