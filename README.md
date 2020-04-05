@@ -20,7 +20,8 @@
    
 
 
-    ```To Register
+    ``` 
+    To Register
 
     curl --request POST \
     --url http://localhost:3000/api/register \
@@ -63,10 +64,10 @@
     "teacher":  "robert@gmail.com",
         "notification": "Hello students! @studentagnes@gmail.com @studentmiche@gmail.com"
     }'
+```
 
  5. To run the basic unit tests
-
-    Run the following from terminal with the application running
-    npm test
+    1. Keep the App running
+    2. Run npm test
 
 
