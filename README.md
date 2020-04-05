@@ -8,16 +8,16 @@ Steps to run the application in the dev environment.
     https://github.com/anupam1982/teacher_admin.git
 
 2. Navigate to the directory and execute the following:
-    2.1 cp teacher_admin/deploy/env/dev/dotenv .env
-    2.2 docker-compose build
-    2.3 docker-compose up (Give -d option if you want to run it in background)
-    2.4 The application should run in the localhost
+    1. cp teacher_admin/deploy/env/dev/dotenv .env
+    2. docker-compose build
+    3. docker-compose up (Give -d option if you want to run it in background)
+    4. The application should run in the localhost
 
 3. Type "http://localhost:3000" in the browser to check if the application is running or not.
 
 4. Following are the sample curl requests for the APIs
    
-    To Register
+    1. To Register
 
     curl --request POST \
     --url http://localhost:3000/api/register \
@@ -31,13 +31,13 @@ Steps to run the application in the dev environment.
     }
     '
 
-    To get CommonStudents
+    2. To get CommonStudents
 
     curl --request GET \
     --url 'http://localhost:3000/api/commonstudents?teacher=patrick%40gmail.com&teacher=dicky%40gmail.com' \
     --header 'content-type: application/json' \ '
 
-    To Suspend a student
+    3. To Suspend a student
 
     curl --request POST \
     --url http://localhost:3000/api/suspend \
@@ -48,7 +48,7 @@ Steps to run the application in the dev environment.
     }
     '
 
-    To Retrieve Notification List
+    4. To Retrieve Notification List
 
     curl --request POST \
     --url http://localhost:3000/api/retrievefornotifications \
