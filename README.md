@@ -14,7 +14,7 @@
     3. **docker-compose up (Give -d option if you want to run it in background)**
     4. **The application should run in the localhost.**
 
-3. **Type "http://localhost:3000" in the browser to check if the application is running or not.**
+3. **Type http://localhost:3000 in the browser to check if the application is running or not.**
 
 4. **Following are the sample curl requests for the APIs**
    
