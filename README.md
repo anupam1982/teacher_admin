@@ -18,7 +18,9 @@
 
 4. **Following are the sample curl requests for the APIs**
    
-    1. To Register
+
+    To Register
+
 ```
     curl --request POST \
     --url http://localhost:3000/api/register \
@@ -30,16 +32,20 @@
         "abc@gmail.com"
         ]
     }
-    '
-```
-    2. To get CommonStudents
+    ' ```
+
+    To get CommonStudents
+
+
 ```
     curl --request GET \
     --url 'http://localhost:3000/api/commonstudents?teacher=patrick%40gmail.com&teacher=dicky%40gmail.com' \
-    --header 'content-type: application/json' \ '
-    ```
+    --header 'content-type: application/json' \ ' ```
 
-    3. To Suspend a student
+    
+    To Suspend a student
+
+
 ```
     curl --request POST \
     --url http://localhost:3000/api/suspend \
@@ -48,10 +54,11 @@
     --data '{
     "student": "abc@gmail.com"
     }
-    '
-    ```
+    ' ```
 
-    4. To Retrieve Notification List
+
+    To Retrieve Notification List
+
 ```
     curl --request POST \
     --url http://localhost:3000/api/retrievefornotifications \
